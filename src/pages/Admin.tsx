@@ -4,7 +4,18 @@ import { collection, getDocs, doc, updateDoc, deleteDoc, setDoc, query, orderBy 
 import { auth, googleProvider, db } from "@/lib/firebase";
 import { isAllowedDomain } from "@/lib/domains";
 import { toast } from "sonner";
-import { LogOut, Download, Search, Users, Clock, ChevronDown } from "lucide-react";
+import { LogOut, Download, Search, Users, Clock, ChevronDown, Trash2 } from "lucide-react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 interface WaitlistEntry {
   id: string;
