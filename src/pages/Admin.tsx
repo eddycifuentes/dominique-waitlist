@@ -1,10 +1,21 @@
 import { useState, useEffect } from "react";
 import { signInWithPopup, onAuthStateChanged, signOut, User } from "firebase/auth";
-import { collection, getDocs, doc, updateDoc, query, orderBy } from "firebase/firestore";
+import { collection, getDocs, doc, updateDoc, deleteDoc, setDoc, query, orderBy } from "firebase/firestore";
 import { auth, googleProvider, db } from "@/lib/firebase";
 import { isAllowedDomain } from "@/lib/domains";
 import { toast } from "sonner";
-import { LogOut, Download, Search, Users, Clock, ChevronDown } from "lucide-react";
+import { LogOut, Download, Search, Users, Clock, ChevronDown, Trash2 } from "lucide-react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 interface WaitlistEntry {
   id: string;
@@ -25,6 +36,7 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterStatus, setFilterStatus] = useState("todos");
+  const [resetting, setResetting] = useState(false);
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (u) => {
@@ -82,7 +94,23 @@ export default function AdminPage() {
     }
   };
 
-  const exportCSV = () => {
+  const resetWaitlist = async () => {
+    setResetting(true);
+    try {
+      const snap = await getDocs(collection(db, "waitlist"));
+      const deletePromises = snap.docs.map((d) => deleteDoc(doc(db, "waitlist", d.id)));
+      await Promise.all(deletePromises);
+      await setDoc(doc(db, "_meta", "waitlist_counter"), { count: 0 });
+      setEntries([]);
+      toast.success("Waitlist reseteada correctamente.");
+    } catch (err) {
+      console.error(err);
+      toast.error("Error al resetear la waitlist.");
+    } finally {
+      setResetting(false);
+    }
+  };
+
     const headers = ["Posición", "Nombre", "Correo", "Empresa", "Área", "Motivo", "Estado", "Fecha"];
     const rows = filteredEntries.map((e) => [
       e.posicion,
@@ -217,6 +245,30 @@ export default function AdminPage() {
           >
             Refrescar
           </button>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <button
+                disabled={resetting}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-destructive text-destructive-foreground text-sm font-medium hover:opacity-90 transition disabled:opacity-50"
+              >
+                <Trash2 className="w-4 h-4" /> {resetting ? "Reseteando..." : "Resetear waitlist"}
+              </button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>¿Estás seguro?</AlertDialogTitle>
+                <AlertDialogDescription>
+                  Esta acción eliminará todos los registros de la waitlist y reiniciará el contador a 0. Esta acción no se puede deshacer.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                <AlertDialogAction onClick={resetWaitlist} className="bg-destructive text-destructive-foreground hover:bg-destructive/90">
+                  Sí, resetear todo
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </div>
 
         {/* Table */}
