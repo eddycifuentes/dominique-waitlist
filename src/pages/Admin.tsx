@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { signInWithPopup, onAuthStateChanged, signOut, User } from "firebase/auth";
-import { collection, getDocs, doc, updateDoc, query, orderBy } from "firebase/firestore";
+import { collection, getDocs, doc, updateDoc, deleteDoc, setDoc, query, orderBy } from "firebase/firestore";
 import { auth, googleProvider, db } from "@/lib/firebase";
 import { isAllowedDomain } from "@/lib/domains";
 import { toast } from "sonner";
