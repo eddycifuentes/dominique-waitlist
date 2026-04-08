@@ -18,7 +18,7 @@ export default function WaitlistForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.nombre.trim() || !form.correo.trim() || !form.empresa.trim() || !form.motivo_uso.trim()) {
+    if (!form.correo.trim()) {
       toast.error("Por favor completa todos los campos.");
       return;
     }
