@@ -5,7 +5,7 @@ const benefits = [
   {
     icon: Zap,
     title: "Entra antes que todos",
-    description: "La innovación no espera. Tú tampoco deberías. Accede a Dominique cuando aún es un privilegio."",
+    description: "La innovación no espera. Tú tampoco deberías. Accede a Dominique cuando aún es un privilegio.",
   },
   {
     icon: Users,
