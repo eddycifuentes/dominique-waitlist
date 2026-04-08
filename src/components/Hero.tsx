@@ -137,7 +137,7 @@ export default function Hero() {
           <div className="flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-6 py-3">
             <div className={`w-3 h-3 rounded-full ${isFull ? "bg-destructive" : "bg-green-400 animate-pulse-slow"}`} />
             <span className="text-primary-foreground/90 font-medium text-sm">
-              {loading ? "Cargando..." : isFull ? "Lista cerrada" : `${available} cupos disponibles de ${100}`}
+              {loading ? "Muy pronto..." : isFull ? "Lista cerrada" : `${available} cupos disponibles de ${100}`}
             </span>
           </div>
         </motion.div>
