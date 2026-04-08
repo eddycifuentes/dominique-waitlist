@@ -319,7 +319,7 @@ export default function AdminPage() {
             <tbody>
               {loading ? (
                 <tr>
-                  <td colSpan={7} className="px-4 py-8 text-center text-muted-foreground">
+              <td colSpan={5} className="px-4 py-8 text-center text-muted-foreground">
                     Cargando...
                   </td>
                 </tr>
