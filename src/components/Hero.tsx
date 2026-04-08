@@ -88,10 +88,11 @@ export default function Hero() {
             Dominique
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary-foreground/90 max-w-3xl mx-auto mb-4">
-            Investiga, diseña y construye iniciativas de clase mundial, de forma sencilla, confiable y amigable.
+            Investiga, diseña, construye y sustenta iniciativas de clase mundial; de forma sencilla, confiable y
+            amigable.
           </p>
           <p className="text-base md:text-lg text-primary-foreground/70 max-w-2xl mx-auto mb-10">
-            Reserva tu cupo: Registra tu correo para asegurar tu acceso anticipado.
+            ¡Reserva tu cupo: Registra tu correo para asegurar tu acceso anticipado!
           </p>
         </motion.div>
 
