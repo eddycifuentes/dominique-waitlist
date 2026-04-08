@@ -310,9 +310,7 @@ export default function AdminPage() {
             <thead>
               <tr className="border-b border-border text-left">
                 <th className="px-4 py-3 font-semibold text-muted-foreground">#</th>
-                <th className="px-4 py-3 font-semibold text-muted-foreground">Nombre</th>
                 <th className="px-4 py-3 font-semibold text-muted-foreground">Correo</th>
-                <th className="px-4 py-3 font-semibold text-muted-foreground">Empresa</th>
                 <th className="px-4 py-3 font-semibold text-muted-foreground">Estado</th>
                 <th className="px-4 py-3 font-semibold text-muted-foreground">Fecha</th>
                 <th className="px-4 py-3 font-semibold text-muted-foreground">Acción</th>
