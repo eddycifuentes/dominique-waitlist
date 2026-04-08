@@ -27,7 +27,7 @@ export default function Benefits() {
           ¿Por qué unirte ahora?
         </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {benefits.map((b, i) => (
             <motion.div
               key={b.title}
