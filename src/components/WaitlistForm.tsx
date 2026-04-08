@@ -119,22 +119,6 @@ export default function WaitlistForm() {
           className="bg-card rounded-2xl p-8 shadow-lg border border-border space-y-5"
         >
           <div>
-            <label htmlFor="nombre" className="block text-sm font-medium text-foreground mb-1.5">
-              Nombre completo
-            </label>
-            <input
-              id="nombre"
-              name="nombre"
-              type="text"
-              required
-              maxLength={100}
-              value={form.nombre}
-              onChange={handleChange}
-              className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors"
-              placeholder="Tu nombre"
-            />
-          </div>
-          <div>
             <label htmlFor="correo" className="block text-sm font-medium text-foreground mb-1.5">
               Correo corporativo
             </label>
@@ -148,38 +132,6 @@ export default function WaitlistForm() {
               onChange={handleChange}
               className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors"
               placeholder="nombre@empresa.com"
-            />
-          </div>
-          <div>
-            <label htmlFor="empresa" className="block text-sm font-medium text-foreground mb-1.5">
-              Empresa / Área
-            </label>
-            <input
-              id="empresa"
-              name="empresa"
-              type="text"
-              required
-              maxLength={100}
-              value={form.empresa}
-              onChange={handleChange}
-              className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors"
-              placeholder="Ej: Davivienda / Innovación"
-            />
-          </div>
-          <div>
-            <label htmlFor="motivo_uso" className="block text-sm font-medium text-foreground mb-1.5">
-              ¿Para qué usarías Dominique?
-            </label>
-            <textarea
-              id="motivo_uso"
-              name="motivo_uso"
-              required
-              maxLength={500}
-              rows={3}
-              value={form.motivo_uso}
-              onChange={handleChange}
-              className="w-full rounded-lg border border-input bg-background px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring transition-colors resize-none"
-              placeholder="Cuéntanos brevemente..."
             />
           </div>
           <button

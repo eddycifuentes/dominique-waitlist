@@ -12,11 +12,6 @@ const benefits = [
     title: "Onboarding exclusivo",
     description: "Sesión personalizada para sacar el máximo provecho desde el día uno.",
   },
-  {
-    icon: MessageSquare,
-    title: "Voz en la hoja de ruta",
-    description: "Tus sugerencias definirán las próximas funcionalidades de Dominique.",
-  },
 ];
 
 export default function Benefits() {

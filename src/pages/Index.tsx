@@ -14,7 +14,6 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Hero onCTA={scrollToForm} />
-      <Features />
       <div ref={formRef}>
         <WaitlistForm />
       </div>
