@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Zap, Users, MessageSquare } from "lucide-react";
+import { Zap, Users } from "lucide-react";
 
 const benefits = [
   {
