@@ -200,7 +200,7 @@ export default function AdminPage() {
       <header className="border-b border-border bg-card px-4 py-4">
         <div className="container flex items-center justify-between">
           <div>
-            <h1 className="text-xl font-bold text-foreground">Administrados waitlist Dominique</h1>
+            <h1 className="text-xl font-bold text-foreground">[Administrador] Waitlist Dominique</h1>
             <p className="text-sm text-muted-foreground">{user.email}</p>
           </div>
           <button
