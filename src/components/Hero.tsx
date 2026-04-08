@@ -70,7 +70,15 @@ export default function Hero() {
       <div className="absolute bottom-10 -right-20 w-96 h-96 rounded-full bg-accent/10 blur-3xl" />
 
       <div className="container relative z-10 text-center px-4 py-20">
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="flex flex-col items-center">
+          <motion.img
+            src="https://sb-dominique-prod.web.app/assets/Orbe%20color%20dominique%20gif-Dcqpkmax.gif"
+            alt="Dominique orbe animado"
+            className="w-28 h-28 md:w-36 md:h-36 mb-6 rounded-full shadow-lg"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+          />
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-primary-foreground mb-4">
             Dominique
           </h1>
