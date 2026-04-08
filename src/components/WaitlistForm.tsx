@@ -103,11 +103,19 @@ export default function WaitlistForm() {
           <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-3">
             {isFull ? "Lista de espera" : "Reserva tu cupo"}
           </h2>
-          <p className="text-center text-muted-foreground mb-10">
+          <p className="text-center text-muted-foreground mb-4">
             {isFull
-              ? "Los 100 primeros ya están dentro. Déjanos tu correo y te avisamos si se abre un nuevo cupo."
+              ? "Déjanos tu correo y te avisamos si se abre un nuevo cupo."
               : "Completa el formulario para asegurar tu acceso anticipado."}
           </p>
+          {isFull && (
+            <div className="bg-accent/20 border border-accent rounded-xl px-6 py-4 mb-10 text-center">
+              <p className="text-sm font-semibold text-foreground">
+                🚀 Los 100 cupos de acceso anticipado están completos. Si te registras ahora quedas en lista de espera y te avisaremos si se libera un cupo.
+              </p>
+            </div>
+          )}
+          {!isFull && <div className="mb-10" />}
         </motion.div>
 
         <motion.form
