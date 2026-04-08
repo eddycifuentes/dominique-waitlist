@@ -35,13 +35,15 @@ export default function Benefits() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className="bg-card border border-border rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow"
+              className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-5 text-center md:text-left"
             >
-              <div className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center mx-auto mb-5">
+              <div className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
                 <b.icon className="w-7 h-7 text-secondary" />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">{b.title}</h3>
-              <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
+              <div>
+                <h3 className="text-lg font-bold text-foreground mb-1">{b.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
+              </div>
             </motion.div>
           ))}
         </div>
