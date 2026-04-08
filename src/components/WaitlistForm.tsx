@@ -52,11 +52,7 @@ export default function WaitlistForm() {
 
         const newDocRef = doc(collection(db, "waitlist"));
         transaction.set(newDocRef, {
-          nombre: form.nombre.trim(),
           correo: form.correo.toLowerCase().trim(),
-          empresa: form.empresa.trim(),
-          area: "",
-          motivo_uso: form.motivo_uso.trim(),
           posicion: newPosition,
           estado,
           createdAt: serverTimestamp(),
