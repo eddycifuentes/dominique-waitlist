@@ -26,7 +26,7 @@ export default function Hero() {
     setSubmitting(true);
     try {
       const existing = await getDocs(
-        query(collection(db, "waitlist"), where("correo", "==", correo.toLowerCase().trim())),
+        query(collection(db, "waitlist"), where("correo", "==", correo.toLowerCase().trim()))
       );
       if (!existing.empty) {
         toast.error("Este correo ya está registrado en la lista.");
@@ -70,12 +70,7 @@ export default function Hero() {
       <div className="absolute bottom-10 -right-20 w-96 h-96 rounded-full bg-accent/10 blur-3xl" />
 
       <div className="container relative z-10 text-center px-4 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="flex flex-col items-center"
-        >
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="flex flex-col items-center">
           <motion.img
             src="https://sb-dominique-prod.web.app/assets/Orbe%20color%20dominique%20gif-Dcqpkmax.gif"
             alt="Dominique orbe animado"
@@ -88,6 +83,9 @@ export default function Hero() {
             Dominique
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary-foreground/90 max-w-3xl mx-auto mb-4">
+            La IA que piensa contigo para innovar en grande.
+          </p>
+          <p className="text-base md:text-lg text-primary-foreground/70 max-w-2xl mx-auto mb-10">
             Investiga, diseña y construye iniciativas de clase mundial, de forma sencilla, confiable y amigable.
           </p>
         </motion.div>
