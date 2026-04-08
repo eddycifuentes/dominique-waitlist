@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Zap, Users, MessageSquare } from "lucide-react";
+import { Zap, Users } from "lucide-react";
 
 const benefits = [
   {
@@ -11,11 +11,6 @@ const benefits = [
     icon: Users,
     title: "Onboarding exclusivo",
     description: "Sesión personalizada para sacar el máximo provecho desde el día uno.",
-  },
-  {
-    icon: MessageSquare,
-    title: "Voz en la hoja de ruta",
-    description: "Tus sugerencias definirán las próximas funcionalidades de Dominique.",
   },
 ];
 
@@ -32,7 +27,7 @@ export default function Benefits() {
           ¿Por qué unirte ahora?
         </motion.h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {benefits.map((b, i) => (
             <motion.div
               key={b.title}
