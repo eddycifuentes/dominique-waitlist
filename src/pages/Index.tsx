@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import Hero from "@/components/Hero";
-import Features from "@/components/Features";
 import WaitlistForm from "@/components/WaitlistForm";
 import Benefits from "@/components/Benefits";
 import Footer from "@/components/Footer";
