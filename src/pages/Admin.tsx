@@ -110,7 +110,15 @@ export default function AdminPage() {
       setResetting(false);
     }
   };
+  const filteredEntries = entries.filter((e) => {
+    const matchesSearch =
+      e.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      e.correo.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesFilter = filterStatus === "todos" || e.estado === filterStatus;
+    return matchesSearch && matchesFilter;
+  });
 
+  const exportCSV = () => {
     const headers = ["Posición", "Nombre", "Correo", "Empresa", "Área", "Motivo", "Estado", "Fecha"];
     const rows = filteredEntries.map((e) => [
       e.posicion,
@@ -131,14 +139,6 @@ export default function AdminPage() {
     a.click();
     URL.revokeObjectURL(url);
   };
-
-  const filteredEntries = entries.filter((e) => {
-    const matchesSearch =
-      e.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      e.correo.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFilter = filterStatus === "todos" || e.estado === filterStatus;
-    return matchesSearch && matchesFilter;
-  });
 
   const inscritosCount = entries.filter((e) => e.estado === "inscrito").length;
   const enEsperaCount = entries.filter((e) => e.estado === "en_espera").length;
