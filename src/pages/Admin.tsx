@@ -39,7 +39,15 @@ export default function AdminPage() {
   const [resetting, setResetting] = useState(false);
 
   useEffect(() => {
+    console.log("[Admin] Setting up onAuthStateChanged...");
+    const timeout = setTimeout(() => {
+      console.log("[Admin] Auth timeout reached, setting authLoading to false");
+      setAuthLoading(false);
+    }, 5000);
+
     const unsub = onAuthStateChanged(auth, (u) => {
+      clearTimeout(timeout);
+      console.log("[Admin] onAuthStateChanged fired, user:", u?.email || "null");
       if (u && u.email && isAllowedDomain(u.email)) {
         setUser(u);
       } else if (u) {
@@ -51,7 +59,10 @@ export default function AdminPage() {
       }
       setAuthLoading(false);
     });
-    return unsub;
+    return () => {
+      clearTimeout(timeout);
+      unsub();
+    };
   }, []);
 
   useEffect(() => {
