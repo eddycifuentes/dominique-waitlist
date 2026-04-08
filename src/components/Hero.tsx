@@ -135,9 +135,7 @@ export default function Hero() {
             </div>
           )}
 
-          <div className="flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-6 py-3">
-            <div className={`w-3 h-3 rounded-full ${isFull ? "bg-destructive" : "bg-green-400 animate-pulse-slow"}`} />
-          </div>
+          <div className="py-3" />
         </motion.div>
 
         <motion.p
