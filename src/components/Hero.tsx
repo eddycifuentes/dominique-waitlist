@@ -76,17 +76,19 @@ export default function Hero() {
           transition={{ duration: 0.7 }}
           className="flex flex-col items-center"
         >
-          <motion.img
-            src="https://sb-dominique-prod.web.app/assets/Orbe%20color%20dominique%20gif-Dcqpkmax.gif"
-            alt="Dominique orbe animado"
-            className="w-28 h-28 md:w-36 md:h-36 mb-6 rounded-full shadow-lg"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-          />
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-primary-foreground mb-4">
-            Dominique
-          </h1>
+          <div className="flex items-center justify-center gap-4 md:gap-6 mb-4">
+            <motion.img
+              src="https://sb-dominique-prod.web.app/assets/Orbe%20color%20dominique%20gif-Dcqpkmax.gif"
+              alt="Dominique orbe animado"
+              className="w-20 h-20 md:w-28 md:h-28 lg:w-36 lg:h-36 rounded-full shadow-lg"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6 }}
+            />
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-primary-foreground">
+              Dominique
+            </h1>
+          </div>
           <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary-foreground/90 max-w-3xl mx-auto mb-4">
             Investiga, diseña, construye y sustenta iniciativas de clase mundial; de forma sencilla, confiable y
             amigable.
