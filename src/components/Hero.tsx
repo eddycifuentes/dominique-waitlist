@@ -135,13 +135,16 @@ export default function Hero() {
             </div>
           )}
 
+          <div className="flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-6 py-3">
+            <div className={`w-3 h-3 rounded-full ${isFull ? "bg-destructive" : "bg-green-400 animate-pulse-slow"}`} />
+          </div>
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="text-base md:text-lg text-primary-foreground/70 max-w-2xl mx-auto mb-10"
+          className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary-foreground/90 max-w-3xl mx-auto mb-4"
         >
           Solo 100 colaboradores tendrán acceso en esta primera fase. Sé uno de ellos.
         </motion.p>
