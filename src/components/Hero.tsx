@@ -126,7 +126,7 @@ export default function Hero() {
                 disabled={submitting}
                 className="gradient-cta text-primary font-bold text-base px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
               >
-                {submitting ? "Registrando..." : "Quiero acceso"}
+                {submitting ? "Registrando..." : "Registrarme"}
               </button>
             </form>
           ) : (
