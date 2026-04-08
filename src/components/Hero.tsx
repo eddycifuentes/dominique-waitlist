@@ -15,11 +15,7 @@ export default function Hero({ onCTA }: HeroProps) {
       <div className="absolute bottom-10 -right-20 w-96 h-96 rounded-full bg-accent/10 blur-3xl" />
 
       <div className="container relative z-10 text-center px-4 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-primary-foreground mb-4">
             Dominique
           </h1>
@@ -27,7 +23,7 @@ export default function Hero({ onCTA }: HeroProps) {
             La IA que piensa contigo para innovar en grande.
           </p>
           <p className="text-base md:text-lg text-primary-foreground/70 max-w-2xl mx-auto mb-10">
-            Dominique es tu nuevo consultor de innovación. Investiga, diseña y construye iniciativas de clase mundial. Solo con escribirle.
+            Investiga, diseña y construye iniciativas de clase mundial, de forma sencilla, confiable y amigable.
           </p>
         </motion.div>
 
@@ -46,20 +42,14 @@ export default function Hero({ onCTA }: HeroProps) {
             </button>
           ) : (
             <div className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-2xl px-8 py-4">
-              <p className="text-primary-foreground font-semibold">
-                Los 100 primeros ya están dentro.
-              </p>
+              <p className="text-primary-foreground font-semibold">Los 100 primeros ya están dentro.</p>
             </div>
           )}
 
           <div className="flex items-center gap-3 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-6 py-3">
             <div className={`w-3 h-3 rounded-full ${isFull ? "bg-destructive" : "bg-green-400 animate-pulse-slow"}`} />
             <span className="text-primary-foreground/90 font-medium text-sm">
-              {loading
-                ? "Cargando..."
-                : isFull
-                ? "Lista cerrada"
-                : `${available} cupos disponibles de ${100}`}
+              {loading ? "Cargando..." : isFull ? "Lista cerrada" : `${available} cupos disponibles de ${100}`}
             </span>
           </div>
         </motion.div>
