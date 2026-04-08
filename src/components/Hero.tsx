@@ -1,16 +1,71 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
+import { collection, runTransaction, doc, serverTimestamp, query, where, getDocs } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+import { isAllowedDomain, MAX_WAITLIST } from "@/lib/domains";
 import { useWaitlistCount } from "@/hooks/useWaitlistCount";
+import { toast } from "sonner";
 
-interface HeroProps {
-  onCTA: () => void;
-}
-
-export default function Hero({ onCTA }: HeroProps) {
+export default function Hero() {
   const { available, isFull, loading } = useWaitlistCount();
+  const [correo, setCorreo] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!correo.trim()) {
+      toast.error("Por favor ingresa tu correo.");
+      return;
+    }
+    if (!isAllowedDomain(correo)) {
+      toast.error("Este correo no corresponde a una empresa del Grupo Bolívar.");
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const existing = await getDocs(
+        query(collection(db, "waitlist"), where("correo", "==", correo.toLowerCase().trim()))
+      );
+      if (!existing.empty) {
+        toast.error("Este correo ya está registrado en la lista.");
+        setSubmitting(false);
+        return;
+      }
+
+      const counterRef = doc(db, "_meta", "waitlist_counter");
+      await runTransaction(db, async (transaction) => {
+        const counterDoc = await transaction.get(counterRef);
+        let currentCount = 0;
+        if (counterDoc.exists()) {
+          currentCount = counterDoc.data().count || 0;
+        }
+        const newPosition = currentCount + 1;
+        const estado = newPosition <= MAX_WAITLIST ? "inscrito" : "en_espera";
+
+        const newDocRef = doc(collection(db, "waitlist"));
+        transaction.set(newDocRef, {
+          correo: correo.toLowerCase().trim(),
+          posicion: newPosition,
+          estado,
+          createdAt: serverTimestamp(),
+        });
+        transaction.set(counterRef, { count: newPosition }, { merge: true });
+      });
+
+      setSubmitted(true);
+      toast.success("¡Te has registrado exitosamente!");
+    } catch (err) {
+      console.error(err);
+      toast.error("Ocurrió un error. Intenta de nuevo.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center gradient-hero overflow-hidden">
-      {/* Decorative circles */}
       <div className="absolute top-20 -left-20 w-72 h-72 rounded-full bg-secondary/20 blur-3xl" />
       <div className="absolute bottom-10 -right-20 w-96 h-96 rounded-full bg-accent/10 blur-3xl" />
 
@@ -31,15 +86,35 @@ export default function Hero({ onCTA }: HeroProps) {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-col items-center gap-6"
+          className="flex flex-col items-center gap-6 max-w-md mx-auto"
         >
-          {!isFull ? (
-            <button
-              onClick={onCTA}
-              className="gradient-cta text-primary font-bold text-lg px-10 py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-            >
-              Quiero acceso anticipado
-            </button>
+          {submitted ? (
+            <div className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-2xl px-8 py-6">
+              <div className="text-3xl mb-3">🎉</div>
+              <h3 className="text-xl font-bold text-primary-foreground mb-2">¡Estás dentro!</h3>
+              <p className="text-primary-foreground/70 text-sm">
+                Te notificaremos cuando Dominique esté lista para ti.
+              </p>
+            </div>
+          ) : !isFull ? (
+            <form onSubmit={handleSubmit} className="w-full flex flex-col sm:flex-row gap-3">
+              <input
+                type="email"
+                required
+                maxLength={255}
+                value={correo}
+                onChange={(e) => setCorreo(e.target.value)}
+                className="flex-1 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 backdrop-blur-sm px-5 py-3.5 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent transition-colors"
+                placeholder="tu@empresa.com"
+              />
+              <button
+                type="submit"
+                disabled={submitting}
+                className="gradient-cta text-primary font-bold text-base px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+              >
+                {submitting ? "Registrando..." : "Quiero acceso"}
+              </button>
+            </form>
           ) : (
             <div className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-2xl px-8 py-4">
               <p className="text-primary-foreground font-semibold">Los 100 primeros ya están dentro.</p>
