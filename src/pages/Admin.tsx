@@ -123,8 +123,8 @@ export default function AdminPage() {
   };
   const filteredEntries = entries.filter((e) => {
     const matchesSearch =
-      e.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      e.correo.toLowerCase().includes(searchTerm.toLowerCase());
+      (e.nombre || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (e.correo || "").toLowerCase().includes(searchTerm.toLowerCase());
     const matchesFilter = filterStatus === "todos" || e.estado === filterStatus;
     return matchesSearch && matchesFilter;
   });
