@@ -27,7 +27,7 @@ export default function Benefits() {
           ¿Por qué unirte ahora?
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {benefits.map((b, i) => (
             <motion.div
               key={b.title}
@@ -35,13 +35,13 @@ export default function Benefits() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className="text-center"
+              className="bg-card border border-border rounded-2xl p-8 text-center shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center mx-auto mb-5">
                 <b.icon className="w-7 h-7 text-secondary" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2">{b.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{b.description}</p>
+              <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
             </motion.div>
           ))}
         </div>
