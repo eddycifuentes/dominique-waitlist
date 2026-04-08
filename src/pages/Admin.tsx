@@ -310,9 +310,7 @@ export default function AdminPage() {
             <thead>
               <tr className="border-b border-border text-left">
                 <th className="px-4 py-3 font-semibold text-muted-foreground">#</th>
-                <th className="px-4 py-3 font-semibold text-muted-foreground">Nombre</th>
                 <th className="px-4 py-3 font-semibold text-muted-foreground">Correo</th>
-                <th className="px-4 py-3 font-semibold text-muted-foreground">Empresa</th>
                 <th className="px-4 py-3 font-semibold text-muted-foreground">Estado</th>
                 <th className="px-4 py-3 font-semibold text-muted-foreground">Fecha</th>
                 <th className="px-4 py-3 font-semibold text-muted-foreground">Acción</th>
@@ -321,13 +319,13 @@ export default function AdminPage() {
             <tbody>
               {loading ? (
                 <tr>
-                  <td colSpan={7} className="px-4 py-8 text-center text-muted-foreground">
+              <td colSpan={5} className="px-4 py-8 text-center text-muted-foreground">
                     Cargando...
                   </td>
                 </tr>
               ) : filteredEntries.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="px-4 py-8 text-center text-muted-foreground">
+              <td colSpan={5} className="px-4 py-8 text-center text-muted-foreground">
                     No hay registros.
                   </td>
                 </tr>
@@ -335,9 +333,7 @@ export default function AdminPage() {
                 filteredEntries.map((e) => (
                   <tr key={e.id} className="border-b border-border last:border-0 hover:bg-muted/50 transition">
                     <td className="px-4 py-3 text-foreground">{e.posicion}</td>
-                    <td className="px-4 py-3 text-foreground font-medium">{e.nombre}</td>
                     <td className="px-4 py-3 text-muted-foreground">{e.correo}</td>
-                    <td className="px-4 py-3 text-muted-foreground">{e.empresa}</td>
                     <td className="px-4 py-3">
                       <span
                         className={`px-2.5 py-1 rounded-full text-xs font-medium ${
