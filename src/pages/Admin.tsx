@@ -325,7 +325,7 @@ export default function AdminPage() {
                 </tr>
               ) : filteredEntries.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="px-4 py-8 text-center text-muted-foreground">
+              <td colSpan={5} className="px-4 py-8 text-center text-muted-foreground">
                     No hay registros.
                   </td>
                 </tr>
