@@ -92,7 +92,7 @@ export default function Hero() {
             amigable.
           </p>
           <p className="text-base md:text-lg text-primary-foreground/70 max-w-2xl mx-auto mb-10">
-            ¡Reserva tu cupo: Registra tu correo para asegurar tu acceso anticipado!
+            ¡Reserva tu cupo: Registra tu correo corporativo para asegurar tu acceso anticipado!
           </p>
         </motion.div>
 
@@ -119,7 +119,7 @@ export default function Hero() {
                 value={correo}
                 onChange={(e) => setCorreo(e.target.value)}
                 className="flex-1 rounded-full border border-primary-foreground/20 bg-primary-foreground/10 backdrop-blur-sm px-5 py-3.5 text-primary-foreground placeholder:text-primary-foreground/50 focus:outline-none focus:ring-2 focus:ring-accent transition-colors"
-                placeholder="tu@empresa.com"
+                placeholder="tu@correo.com"
               />
               <button
                 type="submit"
