@@ -91,7 +91,7 @@ export default function Hero() {
             Investiga, diseña y construye iniciativas de clase mundial, de forma sencilla, confiable y amigable.
           </p>
           <p className="text-base md:text-lg text-primary-foreground/70 max-w-2xl mx-auto mb-10">
-            Reserva tu cupo: Completa el formulario para asegurar tu acceso anticipado.
+            Reserva tu cupo: Registra tu correo para asegurar tu acceso anticipado.
           </p>
         </motion.div>
 
