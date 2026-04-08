@@ -31,7 +31,7 @@ export default function WaitlistForm() {
     try {
       // Check if email already registered
       const existing = await getDocs(
-        query(collection(db, "waitlist"), where("correo", "==", form.correo.toLowerCase().trim()))
+        query(collection(db, "waitlist"), where("correo", "==", form.correo.toLowerCase().trim())),
       );
       if (!existing.empty) {
         toast.error("Este correo ya está registrado en la lista.");
@@ -83,9 +83,7 @@ export default function WaitlistForm() {
               <span className="text-3xl">🎉</span>
             </div>
             <h3 className="text-2xl font-bold text-foreground mb-3">¡Estás dentro!</h3>
-            <p className="text-muted-foreground">
-              Te notificaremos cuando Dominique esté lista para ti.
-            </p>
+            <p className="text-muted-foreground">Muy pronto conocerás novedades sobre Dominique.</p>
           </div>
         </motion.div>
       </section>
@@ -95,27 +93,15 @@ export default function WaitlistForm() {
   return (
     <section id="formulario" className="py-24 px-4 bg-muted">
       <div className="container max-w-lg">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-3">
             {isFull ? "Lista de espera" : "Reserva tu cupo"}
           </h2>
-          <p className="text-center text-muted-foreground mb-4">
+          <p className="text-center text-muted-foreground mb-10">
             {isFull
-              ? "Déjanos tu correo y te avisamos si se abre un nuevo cupo."
+              ? "Los 100 primeros ya están dentro. Déjanos tu correo y te avisamos si se abre un nuevo cupo."
               : "Completa el formulario para asegurar tu acceso anticipado."}
           </p>
-          {isFull && (
-            <div className="bg-accent/20 border border-accent rounded-xl px-6 py-4 mb-10 text-center">
-              <p className="text-sm font-semibold text-foreground">
-                🚀 Los 100 cupos de acceso anticipado están completos. Si te registras ahora quedas en lista de espera y te avisaremos si se libera un cupo.
-              </p>
-            </div>
-          )}
-          {!isFull && <div className="mb-10" />}
         </motion.div>
 
         <motion.form
