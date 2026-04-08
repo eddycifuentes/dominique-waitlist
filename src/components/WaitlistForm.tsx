@@ -8,7 +8,7 @@ import { toast } from "sonner";
 
 export default function WaitlistForm() {
   const { isFull } = useWaitlistCount();
-  const [form, setForm] = useState({ nombre: "", correo: "", empresa: "", motivo_uso: "" });
+  const [form, setForm] = useState({ correo: "" });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
