@@ -146,7 +146,7 @@ export default function Hero() {
           transition={{ delay: 0.8 }}
           className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary-foreground/90 max-w-3xl mx-auto mb-4"
         >
-          Solo 100 colaboradores tendrán acceso en esta primera fase. Sé uno de ellos.
+          Solo 100 personas tendrán acceso antes del lanzamiento. ¿Vas a ser una de ellas?
         </motion.p>
       </div>
     </section>
