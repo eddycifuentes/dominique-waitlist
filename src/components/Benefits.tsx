@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import { Zap, Users, Rocket } from "lucide-react";
+import { Zap, Users } from "lucide-react";
 
 const benefits = [
   {
-    icon: Rocket,
+    icon: Rocket Launch,
     title: "Entra antes que todos",
-    description: "La innovación no espera. Tú tampoco deberías. Accede a Dominique cuando aún es un privilegio.",
+    description: "La innovación no espera. Tú tampoco deberías. Accede a Dominique cuando aún es un privilegio."",
   },
   {
-    icon: Users,
+    icon: Tour,
     title: "No llegas solo",
     description: "Tu primera vez con Dominique no será a ciegas. Una sesión exclusiva te pone en modo experto desde el arranque.",
   },
