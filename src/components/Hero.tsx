@@ -147,7 +147,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-8 text-primary-foreground/50 text-sm"
+          className="text-base md:text-lg text-primary-foreground/70 max-w-2xl mx-auto mb-10"
         >
           Solo 100 colaboradores tendrán acceso en esta primera fase. Sé uno de ellos.
         </motion.p>
