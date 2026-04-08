@@ -8,7 +8,7 @@ export default function Footer() {
           <span className="text-sm font-semibold text-foreground">Grupo Bolívar</span>
         </div>
         <p className="text-xs text-muted-foreground text-center md:text-right">
-          Herramienta de uso interno. Todos los derechos reservados © {new Date().getFullYear()}
+          Grupo Bolívar. Todos los derechos reservados © {new Date().getFullYear()}
         </p>
       </div>
     </footer>
