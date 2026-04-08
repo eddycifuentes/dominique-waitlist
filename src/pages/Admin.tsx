@@ -333,9 +333,7 @@ export default function AdminPage() {
                 filteredEntries.map((e) => (
                   <tr key={e.id} className="border-b border-border last:border-0 hover:bg-muted/50 transition">
                     <td className="px-4 py-3 text-foreground">{e.posicion}</td>
-                    <td className="px-4 py-3 text-foreground font-medium">{e.nombre}</td>
                     <td className="px-4 py-3 text-muted-foreground">{e.correo}</td>
-                    <td className="px-4 py-3 text-muted-foreground">{e.empresa}</td>
                     <td className="px-4 py-3">
                       <span
                         className={`px-2.5 py-1 rounded-full text-xs font-medium ${
