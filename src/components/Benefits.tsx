@@ -4,13 +4,13 @@ import { Zap, Users } from "lucide-react";
 const benefits = [
   {
     icon: Zap,
-    title: "Acceso anticipado",
-    description: "Usa Dominique antes que nadie y lleva ventaja en tus proyectos de innovación.",
+    title: "Entra antes que todos",
+    description: "La innovación no espera. Tú tampoco deberías. Accede a Dominique cuando aún es un privilegio."",
   },
   {
     icon: Users,
-    title: "Onboarding exclusivo",
-    description: "Sesión personalizada para sacar el máximo provecho desde el día uno.",
+    title: "No llegas solo",
+    description: "Tu primera vez con Dominique no será a ciegas. Una sesión exclusiva te pone en modo experto desde el arranque.",
   },
 ];
 
