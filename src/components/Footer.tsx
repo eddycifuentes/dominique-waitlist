@@ -4,8 +4,7 @@ export default function Footer() {
       <div className="container max-w-5xl flex flex-col md:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <span className="text-xl font-extrabold text-gradient">Dominique</span>
-          <span className="text-muted-foreground text-sm">×</span>
-          <span className="text-sm font-semibold text-foreground">Grupo Bolívar</span>
+          <span className="text-sm font-semibold text-foreground"> - VP Innovación Grupo Bolívar</span>
         </div>
         <p className="text-xs text-muted-foreground text-center md:text-right">
           Grupo Bolívar. Todos los derechos reservados © {new Date().getFullYear()}
