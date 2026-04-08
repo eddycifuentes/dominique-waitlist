@@ -94,7 +94,23 @@ export default function AdminPage() {
     }
   };
 
-  const exportCSV = () => {
+  const resetWaitlist = async () => {
+    setResetting(true);
+    try {
+      const snap = await getDocs(collection(db, "waitlist"));
+      const deletePromises = snap.docs.map((d) => deleteDoc(doc(db, "waitlist", d.id)));
+      await Promise.all(deletePromises);
+      await setDoc(doc(db, "_meta", "waitlist_counter"), { count: 0 });
+      setEntries([]);
+      toast.success("Waitlist reseteada correctamente.");
+    } catch (err) {
+      console.error(err);
+      toast.error("Error al resetear la waitlist.");
+    } finally {
+      setResetting(false);
+    }
+  };
+
     const headers = ["Posición", "Nombre", "Correo", "Empresa", "Área", "Motivo", "Estado", "Fecha"];
     const rows = filteredEntries.map((e) => [
       e.posicion,
