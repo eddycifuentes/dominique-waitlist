@@ -245,6 +245,30 @@ export default function AdminPage() {
           >
             Refrescar
           </button>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <button
+                disabled={resetting}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-destructive text-destructive-foreground text-sm font-medium hover:opacity-90 transition disabled:opacity-50"
+              >
+                <Trash2 className="w-4 h-4" /> {resetting ? "Reseteando..." : "Resetear waitlist"}
+              </button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>¿Estás seguro?</AlertDialogTitle>
+                <AlertDialogDescription>
+                  Esta acción eliminará todos los registros de la waitlist y reiniciará el contador a 0. Esta acción no se puede deshacer.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                <AlertDialogAction onClick={resetWaitlist} className="bg-destructive text-destructive-foreground hover:bg-destructive/90">
+                  Sí, resetear todo
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </div>
 
         {/* Table */}
