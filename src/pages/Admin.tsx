@@ -128,14 +128,10 @@ export default function AdminPage() {
   });
 
   const exportCSV = () => {
-    const headers = ["Posición", "Nombre", "Correo", "Empresa", "Área", "Motivo", "Estado", "Fecha"];
+    const headers = ["Posición", "Correo", "Estado", "Fecha"];
     const rows = filteredEntries.map((e) => [
       e.posicion,
-      e.nombre,
       e.correo,
-      e.empresa,
-      e.area,
-      e.motivo_uso,
       e.estado,
       e.createdAt?.toDate?.()?.toISOString?.() || "",
     ]);
