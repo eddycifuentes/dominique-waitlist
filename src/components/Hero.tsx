@@ -88,11 +88,13 @@ export default function Hero() {
             Dominique
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary-foreground/90 max-w-3xl mx-auto mb-4">
-            Investiga, diseña, construye y sustenta iniciativas de clase mundial; de forma sencilla, confiable y
-            amigable.
+            Un modelo de pensamiento potenciado con IA que acompaña a los equipos en la investigación, diseño,
+            construcción y evolución de iniciativas de innovación de clase mundial, de forma estructurada, confiable y
+            escalable.
           </p>
           <p className="text-base md:text-lg text-primary-foreground/70 max-w-2xl mx-auto mb-10">
-            ¡Reserva tu cupo: Registra tu correo corporativo para asegurar tu acceso anticipado!
+            Registra tu correo corporativo para habilitar tu acceso a la plataforma y comenzar a interactuar con
+            Dominique.
           </p>
         </motion.div>
 
@@ -142,7 +144,7 @@ export default function Hero() {
           transition={{ delay: 0.8 }}
           className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary-foreground/90 max-w-3xl mx-auto mb-4"
         >
-          Solo 100 personas tendrán acceso antes del lanzamiento. ¿Vas a ser una de ellas?
+          Acceso inicial limitado a un grupo selecto de usuarios que participarán en la evolución de Dominique.
         </motion.p>
       </div>
     </section>
