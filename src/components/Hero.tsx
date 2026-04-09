@@ -146,7 +146,7 @@ export default function Hero() {
           transition={{ delay: 0.8 }}
           className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary-foreground/90 max-w-3xl mx-auto mb-4"
         >
-          Acceso inicial limitado a un grupo selecto de usuarios que participarán en la evolución de Dominique.
+          Acceso inicial a usuarios que participarán en la evolución de Dominique.
         </motion.p>
       </div>
     </section>
